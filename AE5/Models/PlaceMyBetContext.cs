@@ -8,12 +8,15 @@ namespace AE5.Models
 {
     public class PlaceMyBetContext : DbContext
     {
+
+
         /*eso crea una tabla con todas las propiedades de esta clase */
-        public DbSet<Evento> Evento { get; set; } //Taula
-        public DbSet<Mercado> Mercado { get; set; } //Taula
-        public DbSet<Apuesta> Apuesta { get; set; } //Taula
-        public DbSet<Usuario> Usuario { get; set; } //Taula
-        public DbSet<Cuenta> Cuenta { get; set; } //Taula
+        public DbSet<Evento> Evento { get; set; } //tabla
+        public DbSet<Mercado> Mercado { get; set; } //tabla
+        public DbSet<Apuesta> Apuesta { get; set; } //tabla
+        public DbSet<Usuario> Usuario { get; set; } //tabla
+        public DbSet<Cuenta> Cuenta { get; set; } //tabla
+        public DbSet<EventoDTO> EventoDTO { get; set; } //tabla
 
         /*constructor*/
         public PlaceMyBetContext()

@@ -18,8 +18,18 @@ namespace AE5.Models
             }
             return eventos;
         }
-       
 
+        // recuperar todas las eventos con DTO
+        public List<EventoDTO> retrieveDTO()
+        {
+            List<EventoDTO> eventos;
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                eventos = context.EventoDTO.ToList();
+
+            }
+            return eventos;
+        }
         public void Save (Evento e)
         {
             PlaceMyBetContext context = new PlaceMyBetContext();
