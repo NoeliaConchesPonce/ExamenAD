@@ -24,6 +24,18 @@ namespace AE5.Controllers
             return "value";
         }
 
+
+        /*EJERCICIO 1*/
+        //GET: api/EventosExamen/Valencia
+        public List<Mercado> Get(string nombre)
+        {
+            MercadosRepository rep = new MercadosRepository();
+
+            return rep.retireveNombre();
+        }
+
+        /*FIN EJERCICIO 1*/
+
         // POST: api/Eventos
         public void Post([FromBody]Evento e)
         {
@@ -32,17 +44,13 @@ namespace AE5.Controllers
         }
 
         // PUT: api/Eventos/5
-        public void Put(int id, string eLocal, string eVisitante)
+        public void Put(int id, [FromBody]string value)
         {
-            var repo = new EventosRepository();
-            repo.updateEventos(id, eLocal, eVisitante);
         }
 
         // DELETE: api/Eventos/5
         public void Delete(int id)
         {
-            var repo = new EventosRepository();
-            repo.deleteEventos(id);
         }
     }
 }

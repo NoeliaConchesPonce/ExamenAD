@@ -7,7 +7,7 @@ namespace AE5.Models
 {
     public class EventosRepository
     {
-        // recuperar todas las eventos
+        // recuperar todas los eventos 
         public List<Evento> retrieve()
         {
             List<Evento> eventos;
@@ -18,6 +18,7 @@ namespace AE5.Models
             }
             return eventos;
         }
+       
 
         public void Save (Evento e)
         {
@@ -26,28 +27,5 @@ namespace AE5.Models
             context.SaveChanges();
 
         }
-
-        public void updateEventos(int id, string eLocal, string eVisitante)
-        {
-            Evento evento;
-            PlaceMyBetContext context = new PlaceMyBetContext();
-            evento = context.Evento.FirstOrDefault(a => a.EventoId == id);
-
-            evento.EquipoLocal = eLocal;
-            evento.EquipoVisitante = eVisitante;
-
-            context.SaveChanges();
-        }
-
-        public void deleteEventos (int id)
-        {
-            Evento evento;
-            PlaceMyBetContext context = new PlaceMyBetContext();
-            evento = context.Evento.FirstOrDefault(a => a.EventoId == id);
-
-            context.Remove(evento);
-            context.SaveChanges();
-        }
-     
     }
 }

@@ -30,28 +30,20 @@ namespace AE5.Models
             }
                  
         }
-        public void Save(Mercado m)
-        {
-            PlaceMyBetContext context = new PlaceMyBetContext();
-            context.Mercado.Add(m);
-            context.SaveChanges();
 
-        }
-
-        public static MercadoDTO ToDTO(Mercado m)
+        /*EJERCICIO 1*/
+        //vamos a recuperar un evento a partir del nombre de un equipo
+        public List<Mercado> retireveNombre()
         {
-            return new MercadoDTO(m.OverUnder, m.CuotaOver, m.CuotaUnder);
-        }
-        public List<MercadoDTO> retrieveDTO()
-        {
-            List<MercadoDTO> mercados;
+            List<Mercado> eventosInv;
             using (PlaceMyBetContext context = new PlaceMyBetContext())
             {
-                mercados = context.Mercado.Select(m => ToDTO(m)).ToList();
+                eventosInv = context.Mercado.ToList();
 
             }
-            return mercados;
-        }
+            return eventosInv;
 
+        }
+        /*FIN EJERCICIO 1*/
     }
 }

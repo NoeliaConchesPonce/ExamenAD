@@ -23,14 +23,11 @@ namespace AE5.Models
         List<Apuesta> apuestas { get; set; }
 
         //sin apuestas y evento
-        public Mercado(int mercadoId, double overUnder, double cuotaOver, double cuotaUnder, double dineroOver, double dineroUnder, int eventoId)
+        public Mercado(int mercadoId, double cuotaOver, double cuotaUnder, int eventoId)
         {
             MercadoId = mercadoId;
-            OverUnder = overUnder;
             CuotaOver = cuotaOver;
             CuotaUnder = cuotaUnder;
-            DineroOver = dineroOver;
-            DineroUnder = dineroUnder;
             EventoId = eventoId;
         }
 
