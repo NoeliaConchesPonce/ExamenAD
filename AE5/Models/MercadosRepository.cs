@@ -20,6 +20,22 @@ namespace AE5.Models
             return mercados;
         }
 
+        // recuperar todas las mercados con DTO
+        public static MercadoDTO ToDTO(Mercado m)
+        {
+            return new MercadoDTO(m.OverUnder, m.CuotaOver, m.CuotaUnder);
+        }
+        public List<MercadoDTO> retrieveDTO()
+        {
+            List<MercadoDTO> mercados;
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                mercados = context.Mercado.Select(m => ToDTO(m)).ToList();
+
+            }
+            return mercados;
+        }
+
         //recuperar un mercado a partir de su id
         public Mercado retireveId(int id)
         {
@@ -29,6 +45,14 @@ namespace AE5.Models
                 return mercado;
             }
                  
+        }
+
+        public void Save(Mercado m)
+        {
+            PlaceMyBetContext context = new PlaceMyBetContext();
+            context.Mercado.Add(m);
+            context.SaveChanges();
+
         }
 
         /*EJERCICIO 1*/
